@@ -13,63 +13,50 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-## Android
-
-### android build
+### clean
 
 ```sh
-[bundle exec] fastlane android build
+[bundle exec] fastlane clean
+```
+
+Clean the project
+
+### build
+
+```sh
+[bundle exec] fastlane build
 ```
 
 Build the app
 
-### android test
+### test
 
 ```sh
-[bundle exec] fastlane android test
+[bundle exec] fastlane test
 ```
 
 Runs all the tests
 
-### android lint
+### lint
 
 ```sh
-[bundle exec] fastlane android lint
+[bundle exec] fastlane lint
 ```
 
 Lint the app
 
-### android update_fixed_gradle_property
+----
+
+
+## Android
+
+### android full_pre_release
 
 ```sh
-[bundle exec] fastlane android update_fixed_gradle_property
+[bundle exec] fastlane android full_pre_release
 ```
 
 
-
-### android increment_version
-
-```sh
-[bundle exec] fastlane android increment_version
-```
-
-Increment the version code and version name
-
-### android artifact
-
-```sh
-[bundle exec] fastlane android artifact
-```
-
-Submit a new Beta Build to Crashlytics Beta
-
-### android full
-
-```sh
-[bundle exec] fastlane android full
-```
-
-Full workflow
 
 ----
 

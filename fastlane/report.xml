@@ -5,62 +5,52 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.000209">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.001039">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: Switch to android build lane" time="8.8e-05">
+      <testcase classname="fastlane.lanes" name="1: Switch to android clean lane" time="0.000146">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="02: assemble" time="21.973688">
+      <testcase classname="fastlane.lanes" name="2: clean" time="5.064076">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="03: Switch to android test lane" time="0.000263">
+      <testcase classname="fastlane.lanes" name="3: Switch to android build lane" time="0.000139">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="04: :domain:test" time="1.563631">
+      <testcase classname="fastlane.lanes" name="4: :presentation:assembleDebug" time="23.63796">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="05: Switch to android lint lane" time="0.000131">
+      <testcase classname="fastlane.lanes" name="5: Switch to android test lane" time="0.000269">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="06: lint" time="8.535595">
+      <testcase classname="fastlane.lanes" name="6: :presentation:testDebugUnitTest" time="1.128498">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="07: Switch to android increment_version lane" time="0.000236">
+      <testcase classname="fastlane.lanes" name="7: Switch to android lint lane" time="0.000132">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="08: prompt" time="7.792784">
+      <testcase classname="fastlane.lanes" name="8: ktlintFormat" time="2.963399">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="09: prompt" time="4.101622">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="10: Switch to android artifact lane" time="0.000125">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="11: clean assembleRelease" time="10.045789">
+      <testcase classname="fastlane.lanes" name="9: ktlintCheck" time="3.042695">
         
       </testcase>
     
