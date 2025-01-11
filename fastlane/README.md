@@ -45,6 +45,14 @@ Runs all the tests
 
 Lint the app
 
+### check_qa_branch
+
+```sh
+[bundle exec] fastlane check_qa_branch
+```
+
+Check QA branch
+
 ----
 
 
@@ -54,6 +62,14 @@ Lint the app
 
 ```sh
 [bundle exec] fastlane android full_pre_release
+```
+
+
+
+### android full_release_qa
+
+```sh
+[bundle exec] fastlane android full_release_qa
 ```
 
 

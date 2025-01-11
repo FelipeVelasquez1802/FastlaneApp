@@ -14,6 +14,7 @@
 # update_fastlane
 
 import "./lanes/PreRelease.rb"
+import "./lanes/ReleaseQa.rb"
 
 default_platform(:android)
 
@@ -24,6 +25,10 @@ platform :android do
         build
         test
         lint
+    end
+
+    lane :full_release_qa do
+        check_qa_branch
     end
 
 #     desc "Build the app"
