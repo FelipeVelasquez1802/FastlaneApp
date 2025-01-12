@@ -85,8 +85,8 @@ lane :push_release_qa_branch do |config|
     branch_name = "release-qa/#{version_name}-#{bundle_version}"
     push_to_git_remote(
         remote: git_url,
-        local_name: branch_name,
-        remote_name: branch_name,
+        local_branch: branch_name,
+        remote_branch: branch_name,
         force: true,
         tags: false
     )
