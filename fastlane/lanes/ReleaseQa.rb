@@ -81,6 +81,13 @@ lane :push_release_qa_branch do |config|
     version_name = get_gradle_property("versionName", "../gradle.properties")
     bundle_version = get_gradle_property("bundleVersion", "../gradle.properties")
     commit_changes(version_name: config['version_name'], bundle_version: config['bundle_version'])
-#     remote_path = "https://#{config['git_domain']}/#{config['git_remote']}"
-#     sh("git push #{remote_path} release-qa/#{version_name}-#{bundle_version}")
+    git_url = "https://#{config['git_domain']}/#{config['git_remote']}"
+    branch_name = "release-qa/#{version_name}-#{bundle_version}"
+    push_to_git_remote(
+        remote: git_url,
+        local_name: branch_name,
+        remote_name: branch_name,
+        force: true,
+        tags: false
+    )
 end

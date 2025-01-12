@@ -5,22 +5,32 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000183">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000254">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Switch to android push_release_qa_branch lane" time="0.000101">
+      <testcase classname="fastlane.lanes" name="1: Switch to android push_release_qa_branch lane" time="0.000115">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to android add_changes lane" time="6.5e-05">
+      <testcase classname="fastlane.lanes" name="2: Switch to android add_changes lane" time="5.9e-05">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: git_add" time="0.023764">
+      <testcase classname="fastlane.lanes" name="3: git_add" time="0.021315">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: Switch to android commit_changes lane" time="9.8e-05">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: git_commit" time="0.029462">
         
       </testcase>
     
