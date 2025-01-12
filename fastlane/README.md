@@ -53,10 +53,42 @@ Lint the app
 
 Check QA branch
 
+### increment_version
+
+```sh
+[bundle exec] fastlane increment_version
+```
+
+Increment the version code and version name
+
+### create_release_qa_branch
+
+```sh
+[bundle exec] fastlane create_release_qa_branch
+```
+
+Create a new branch with the name of the version
+
+### push_release_qa_branch
+
+```sh
+[bundle exec] fastlane push_release_qa_branch
+```
+
+Push the branch to the remote
+
 ----
 
 
 ## Android
+
+### android verification
+
+```sh
+[bundle exec] fastlane android verification
+```
+
+
 
 ### android full_pre_release
 

@@ -16,114 +16,34 @@
 import "./lanes/PreRelease.rb"
 import "./lanes/ReleaseQa.rb"
 
+require 'yaml'
+
+def load_config(environment)
+    config_file = File.join(Dir.pwd, "config", "environment_#{environment}.yml")
+    YAML.load_file(config_file)
+end
+
 default_platform(:android)
 
 platform :android do
 
-    lane :full_pre_release do
+    lane :verification do |options|
+        buildType = options[:build_type] || "debug"
         clean
-        build
+        build(build_type: buildType)
         test
         lint
     end
 
-    lane :full_release_qa do
-        check_qa_branch
+    lane :full_pre_release do
+        verification(build_type: "debug")
     end
 
-#     desc "Build the app"
-#     lane :build do
-#         gradle(task: "assemble")
-#     end
-#
-#     desc "Runs all the tests"
-#     lane :test do
-#         gradle(task: ":domain:test")
-#     end
-#
-#     desc "Lint the app"
-#     lane :lint do
-#         gradle(task: "lint")
-#     end
-#
-#     lane :update_fixed_gradle_property do |options|
-#         property_key = "versionName"
-#         property_value = options[:value]
-#         gradle_properties_path = "../gradle.properties"
-#
-#         properties = File.read(gradle_properties_path)
-#
-#         updated_properties = properties.split("\n").map do |line|
-#             if line.strip.start_with?("#{property_key}=")
-#                 "#{property_key}=#{property_value}"
-#             else
-#                 line
-#             end
-#         end
-#
-#         unless updated_properties.any? { |line| line.start_with?("#{property_key}=") }
-#             updated_properties << "#{property_key}=#{property_value}"
-#         end
-#
-#         File.open(gradle_properties_path, "w") do |file|
-#             file.puts updated_properties.join("\n")
-#         end
-#     end
-#
-#     def get_gradle_property(property_key, gradle_properties_path)
-#         properties = File.read(gradle_properties_path)
-#         property_line = properties.split("\n").find { |line| line.strip.start_with?("#{property_key}=") }
-#         property_line ? property_line.split('=', 2).last.strip : ""
-#     end
-#
-#     def update_gradle_property(property_key, new_value, gradle_properties_path)
-#         properties = File.read(gradle_properties_path)
-#         updated_properties = properties.split("\n").map do |line|
-#             line.strip.start_with?("#{property_key}=") ? "#{property_key}=#{new_value}" : line
-#         end
-#
-#         unless updated_properties.any? { |line| line.start_with?("#{property_key}=") }
-#             updated_properties << "#{property_key}=#{new_value}"
-#         end
-#
-#         File.write(gradle_properties_path, updated_properties.join("\n"))
-#     end
-#
-#     desc "Increment the version code and version name"
-#     lane :increment_version do
-#         gradle_properties_path = "../gradle.properties"
-#
-#         version_name_key = "versionName"
-#         current_version_name = get_gradle_property(version_name_key, gradle_properties_path)
-#         new_version_name = prompt(
-#             text: "Enter the new version name (Current version is #{current_version_name}):",
-#             ci_input: current_version_name
-#         )
-#         update_gradle_property(version_name_key, new_version_name, gradle_properties_path)
-#
-#         bundle_version_key = "bundleVersion"
-#         current_bundle_version = get_gradle_property(bundle_version_key, gradle_properties_path)
-#         new_bundle_version = prompt(
-#             text: "Enter the new bundle version (Current bundle is #{current_bundle_version}):",
-#             ci_input: current_bundle_version
-#         )
-#         update_gradle_property(bundle_version_key, new_bundle_version, gradle_properties_path)
-#
-#         UI.success("Version name updated to #{new_version_name}")
-#         UI.success("Bundle version updated to #{new_bundle_version}")
-#     end
-#
-#     desc "Submit a new Beta Build to Crashlytics Beta"
-#     lane :artifact do
-#         gradle(task: "clean assembleRelease")
-#     end
-#
-#     desc "Full workflow"
-#     lane :full do
-#         build
-#         test
-#         lint
+    lane :full_release_qa do
+#         check_qa_branch
+#         verification(build_type: "release")
 #         increment_version
-#         artifact
-#     end
+#         create_release_qa_branch
+        push_release_qa_branch(load_config("qa"))
+    end
 end

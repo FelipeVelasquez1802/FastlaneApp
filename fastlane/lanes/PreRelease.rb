@@ -4,13 +4,14 @@ lane :clean do
 end
 
 desc "Build the app"
-lane :build do
-    gradle(task: ":presentation:assembleDebug")
+lane :build do |options|
+    buildType = options[:build_type] || "debug"
+    gradle(task: ":presentation:assemble#{buildType}")
 end
 
 desc "Runs all the tests"
 lane :test do
-    gradle(task: ":presentation:testDebugUnitTest")
+    gradle(task: ":domain:test")
 end
 
 desc "Lint the app"
