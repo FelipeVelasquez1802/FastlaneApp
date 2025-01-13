@@ -5,62 +5,112 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.000209">
+      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.000172">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: Switch to android build lane" time="8.8e-05">
+      <testcase classname="fastlane.lanes" name="01: Switch to android verification lane" time="8.4e-05">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="02: assemble" time="21.973688">
+      <testcase classname="fastlane.lanes" name="02: Switch to android clean lane" time="6.0e-05">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="03: Switch to android test lane" time="0.000263">
+      <testcase classname="fastlane.lanes" name="03: clean" time="0.774965">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="04: :domain:test" time="1.563631">
+      <testcase classname="fastlane.lanes" name="04: Switch to android build lane" time="0.000122">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="05: Switch to android lint lane" time="0.000131">
+      <testcase classname="fastlane.lanes" name="05: :presentation:assemblerelease" time="4.720787">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="06: lint" time="8.535595">
+      <testcase classname="fastlane.lanes" name="06: Switch to android test lane" time="0.000138">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="07: Switch to android increment_version lane" time="0.000236">
+      <testcase classname="fastlane.lanes" name="07: :domain:test" time="1.218133">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="08: prompt" time="7.792784">
+      <testcase classname="fastlane.lanes" name="08: Switch to android lint lane" time="0.000125">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="09: prompt" time="4.101622">
+      <testcase classname="fastlane.lanes" name="09: ktlintFormat" time="2.52321">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="10: Switch to android artifact lane" time="0.000125">
+      <testcase classname="fastlane.lanes" name="10: ktlintCheck" time="2.396794">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="11: clean assembleRelease" time="10.045789">
+      <testcase classname="fastlane.lanes" name="11: Switch to android increment_version lane" time="0.000189">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="12: prompt" time="5.794185">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="13: prompt" time="1.920608">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="14: Switch to android create_release_qa_branch lane" time="0.000117">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="15: git checkout -b release-qa/1.1.5-6" time="0.031804">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="16: Switch to android push_release_qa_branch lane" time="0.000268">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="17: Switch to android add_changes lane" time="0.000124">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="18: git_add" time="0.026614">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="19: Switch to android commit_changes lane" time="0.000109">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="20: git_commit" time="0.029231">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="21: push_to_git_remote" time="1.086769">
         
       </testcase>
     

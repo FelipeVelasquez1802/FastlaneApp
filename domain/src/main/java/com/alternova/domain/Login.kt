@@ -1,16 +1,16 @@
 package com.alternova.domain
 
-class Login (
+class Login(
     val email: String,
-    val password: String
-){
+    val password: String,
+) {
     init {
         validateEmail()
         validatePassword()
     }
 
     private fun validateEmail() {
-        require (email.isNotBlank()) {
+        require(email.isNotBlank()) {
             throw IllegalArgumentException("Email is required")
         }
     }
