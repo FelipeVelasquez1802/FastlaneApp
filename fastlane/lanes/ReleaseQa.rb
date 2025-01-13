@@ -3,6 +3,10 @@ lane :check_qa_branch do
     begin
         sh("git fetch")
         sh("git checkout qa")
+        git_pull(
+            only_tags: true,
+            rebase: true,
+        )
         UI.success("QA branch is checked")
     rescue => exception
         UI.user_error!("QA branch is not checked")
