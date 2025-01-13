@@ -20,5 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "FastlaneApp"
-include(":app")
+include(":presentation")
 include(":domain")

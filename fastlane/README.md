@@ -13,63 +13,90 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-## Android
-
-### android build
+### clean
 
 ```sh
-[bundle exec] fastlane android build
+[bundle exec] fastlane clean
+```
+
+Clean the project
+
+### build
+
+```sh
+[bundle exec] fastlane build
 ```
 
 Build the app
 
-### android test
+### test
 
 ```sh
-[bundle exec] fastlane android test
+[bundle exec] fastlane test
 ```
 
 Runs all the tests
 
-### android lint
+### lint
 
 ```sh
-[bundle exec] fastlane android lint
+[bundle exec] fastlane lint
 ```
 
 Lint the app
 
-### android update_fixed_gradle_property
+### check_qa_branch
 
 ```sh
-[bundle exec] fastlane android update_fixed_gradle_property
+[bundle exec] fastlane check_qa_branch
 ```
 
+Check QA branch
 
-
-### android increment_version
+### increment_version
 
 ```sh
-[bundle exec] fastlane android increment_version
+[bundle exec] fastlane increment_version
 ```
 
 Increment the version code and version name
 
-### android artifact
+### create_release_qa_branch
 
 ```sh
-[bundle exec] fastlane android artifact
+[bundle exec] fastlane create_release_qa_branch
 ```
 
-Submit a new Beta Build to Crashlytics Beta
+Create a new branch with the name of the version
 
-### android full
+### push_release_qa_branch
 
 ```sh
-[bundle exec] fastlane android full
+[bundle exec] fastlane push_release_qa_branch
 ```
 
-Full workflow
+Push the branch to the remote
+
+----
+
+
+## Android
+
+### android pipeline_pre_release
+
+```sh
+[bundle exec] fastlane android pipeline_pre_release
+```
+
+
+
+### android pipeline_release_qa
+
+```sh
+[bundle exec] fastlane android pipeline_release_qa
+```
+
+
 
 ----
 
