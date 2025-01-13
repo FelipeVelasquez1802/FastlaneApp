@@ -1,6 +1,10 @@
 desc "Check QA branch"
-lane :check_qa_branch do
+lane :check_qa_branch do |options|
     begin
+        git_pull(
+            only_tags: true,
+            remote: options[:git_remote],
+        )
         sh("git fetch")
         sh("git checkout qa")
         UI.success("QA branch is checked")
@@ -8,12 +12,6 @@ lane :check_qa_branch do
         UI.user_error!("QA branch is not checked")
         UI.user_error!(exception)
     end
-end
-
-def get_gradle_property(property_key, gradle_properties_path)
-    properties = File.read(gradle_properties_path)
-    property_line = properties.split("\n").find { |line| line.strip.start_with?("#{property_key}=") }
-    property_line ? property_line.split('=', 2).last.strip : ""
 end
 
 def update_gradle_property(property_key, new_value, gradle_properties_path)
@@ -30,22 +28,20 @@ def update_gradle_property(property_key, new_value, gradle_properties_path)
 end
 
 desc "Increment the version code and version name"
-lane :increment_version do
+lane :increment_version do |options|
+    version_name_key = options[:version_name_key]
+    bundle_version_key = options[:bundle_version_key]
+    version_name = options[:version_name]
+    bundle_version = options[:bundle_version]
     gradle_properties_path = "../gradle.properties"
-
-    version_name_key = "versionName"
-    current_version_name = get_gradle_property(version_name_key, gradle_properties_path)
     new_version_name = prompt(
-        text: "Enter the new version name (Current version is #{current_version_name}):",
-        ci_input: current_version_name
+        text: "Enter the new version name (Current version is #{version_name}):",
+        ci_input: version_name
     )
     update_gradle_property(version_name_key, new_version_name, gradle_properties_path)
-
-    bundle_version_key = "bundleVersion"
-    current_bundle_version = get_gradle_property(bundle_version_key, gradle_properties_path)
     new_bundle_version = prompt(
-        text: "Enter the new bundle version (Current bundle is #{current_bundle_version}):",
-        ci_input: current_bundle_version
+        text: "Enter the new bundle version (Current bundle is #{bundle_version}):",
+        ci_input: bundle_version
     )
     update_gradle_property(bundle_version_key, new_bundle_version, gradle_properties_path)
 

@@ -19,3 +19,9 @@ lane :lint do
     gradle(task: "ktlintFormat")
     gradle(task: "ktlintCheck")
 end
+
+def get_gradle_property(property_key, gradle_properties_path)
+    properties = File.read(gradle_properties_path)
+    property_line = properties.split("\n").find { |line| line.strip.start_with?("#{property_key}=") }
+    property_line ? property_line.split('=', 2).last.strip : ""
+end

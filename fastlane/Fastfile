@@ -13,7 +13,7 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-import "./lanes/PreRelease.rb"
+import "./lanes/Common.rb"
 import "./lanes/ReleaseQa.rb"
 
 require 'yaml'
@@ -27,7 +27,7 @@ default_platform(:android)
 
 platform :android do
 
-    lane :verification do |options|
+    private_lane :verification do |options|
         buildType = options[:build_type] || "debug"
         clean
         build(build_type: buildType)
@@ -35,15 +35,26 @@ platform :android do
         lint
     end
 
-    lane :full_pre_release do
+    lane :pipeline_pre_release do
         verification(build_type: "debug")
     end
 
-    lane :full_release_qa do
-#         check_qa_branch
-#         verification(build_type: "release")
-#         increment_version
-#         create_release_qa_branch
-        push_release_qa_branch(load_config("qa"))
+    lane :pipeline_release_qa do
+        config = load_config("qa")
+        git_url = "https://#{config['git_domain']}/#{config['git_remote']}"
+#         check_qa_branch(git_remote: git_url)
+        verification(build_type: "release")
+        version_name_key = "versionName"
+        bundle_version_key = "bundleVersion"
+        version_name = get_gradle_property(version_name_key, "../gradle.properties")
+        bundle_version = get_gradle_property(bundle_version_key, "../gradle.properties")
+        increment_version(
+            version_name_key: version_name_key,
+            bundle_version_key: bundle_version_key,
+            version_name: version_name,
+            bundle_version: bundle_version
+        )
+        create_release_qa_branch
+        push_release_qa_branch(config)
     end
 end

@@ -5,32 +5,62 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000175">
+      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.000195">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Switch to android push_release_qa_branch lane" time="0.000839">
+      <testcase classname="fastlane.lanes" name="01: Switch to android verification lane" time="9.9e-05">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to android add_changes lane" time="6.7e-05">
+      <testcase classname="fastlane.lanes" name="02: Switch to android clean lane" time="5.7e-05">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: git_add" time="0.022273">
+      <testcase classname="fastlane.lanes" name="03: clean" time="0.982057">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: Switch to android commit_changes lane" time="0.000145">
+      <testcase classname="fastlane.lanes" name="04: Switch to android build lane" time="0.000133">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: git_commit" time="0.027134">
+      <testcase classname="fastlane.lanes" name="05: :presentation:assemblerelease" time="8.22992">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="06: Switch to android test lane" time="0.000137">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="07: :domain:test" time="1.34905">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="08: Switch to android lint lane" time="0.000134">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="09: ktlintFormat" time="2.711074">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="10: ktlintCheck" time="2.387572">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="11: Switch to android increment_version lane" time="0.000105">
         
       </testcase>
     

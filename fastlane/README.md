@@ -82,26 +82,18 @@ Push the branch to the remote
 
 ## Android
 
-### android verification
+### android pipeline_pre_release
 
 ```sh
-[bundle exec] fastlane android verification
+[bundle exec] fastlane android pipeline_pre_release
 ```
 
 
 
-### android full_pre_release
+### android pipeline_release_qa
 
 ```sh
-[bundle exec] fastlane android full_pre_release
-```
-
-
-
-### android full_release_qa
-
-```sh
-[bundle exec] fastlane android full_release_qa
+[bundle exec] fastlane android pipeline_release_qa
 ```
 
 
