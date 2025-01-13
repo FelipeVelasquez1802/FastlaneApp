@@ -40,9 +40,7 @@ platform :android do
     end
 
     lane :pipeline_release_qa do
-        config = load_config("qa")
-        git_url = "https://#{config['git_domain']}/#{config['git_remote']}"
-        check_qa_branch(git_remote: git_url)
+        check_qa_branch
         verification(build_type: "release")
         version_name_key = "versionName"
         bundle_version_key = "bundleVersion"
@@ -55,6 +53,6 @@ platform :android do
             bundle_version: bundle_version
         )
         create_release_qa_branch
-        push_release_qa_branch(config)
+        push_release_qa_branch(load_config("qa"))
     end
 end

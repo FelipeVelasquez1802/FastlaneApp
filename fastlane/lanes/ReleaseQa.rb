@@ -1,11 +1,11 @@
 desc "Check QA branch"
-lane :check_qa_branch do |options|
+lane :check_qa_branch do
     begin
+        sh("git checkout qa")
         git_pull(
             only_tags: true,
-            remote: options[:git_remote],
+            rebase: true,
         )
-        git_checkout(branch: "qa", create_branch: false)
         UI.success("QA branch is checked")
     rescue => exception
         UI.user_error!("QA branch is not checked")
