@@ -5,8 +5,7 @@ lane :check_qa_branch do |options|
             only_tags: true,
             remote: options[:git_remote],
         )
-        sh("git fetch")
-        sh("git checkout qa")
+        git_checkout(branch: "qa", create_branch: false)
         UI.success("QA branch is checked")
     rescue => exception
         UI.user_error!("QA branch is not checked")
